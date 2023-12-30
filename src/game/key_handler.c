@@ -7,29 +7,32 @@
 * 2. GAUCHE
 * -> do_move(map, p, -p->plane_x * MOVE_SPEED, -p->plane_y * MOVE_SPEED);
 */
-static void	do_move(char **map, t_player *p, double new_x, double new_y)
-{
-	if (map[(int)(p->pos_x + new_x)][(int)p->pos_y] != '1')
-		p->pos_x += new_x;
-	if (map[(int)p->pos_x][(int)(p->pos_y + new_y)] != '1')
-		p->pos_y += new_y;
-}
-
-void	move_keys(t_config **conf, int key_pressed)
+static void	do_move(t_config **conf, double new_x, double new_y)
 {
 	char		**map;
 	t_player	*p;
 
-	p = (*conf)->usr;
 	map = (*conf)->map->sketch;
+	p = (*conf)->usr;
+	if (map[(int)(p->pos_x + new_x * (MOVE_SPEED + 0.1))][(int)(p->pos_y)] != '1')
+		p->pos_x += new_x * MOVE_SPEED;
+	if (map[(int)(p->pos_x)][(int)(p->pos_y + new_y * (MOVE_SPEED + 0.1))] != '1')
+		p->pos_y += new_y * MOVE_SPEED;
+}
+
+void	move_keys(t_config **conf, int key_pressed)
+{
+	t_player	*p;
+
+	p = (*conf)->usr;
 	if (key_pressed == W_KEY)
-		do_move(map, p, p->dir_x * (MOVE_SPEED + 0.1), p->dir_y * MOVE_SPEED);
+		do_move(conf, p->dir_x, p->dir_y);
 	else if (key_pressed == S_KEY)
-		do_move(map, p, -p->dir_x * (MOVE_SPEED + 0.1), -p->dir_y * MOVE_SPEED);
+		do_move(conf, -p->dir_x, -p->dir_y);
 	else if (key_pressed == A_KEY)
-		do_move(map, p, -p->dir_y * (MOVE_SPEED + 0.1), p->dir_x * MOVE_SPEED);
+		do_move(conf, -p->dir_y, p->dir_x);
 	else if (key_pressed == D_KEY)
-		do_move(map, p, p->dir_y * (MOVE_SPEED + 0.1), -p->dir_x * MOVE_SPEED);
+		do_move(conf, p->dir_y, -p->dir_x);
 }
 
 void	rotate_keys(t_config **conf, int key_pressed)
