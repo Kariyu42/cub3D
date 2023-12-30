@@ -14,32 +14,29 @@ void	free_double_p(char **table)
 
 int	free_table_err(t_config **conf, char *message, int r_value)
 {
-
-	// if ((*conf)->map->sketch)
-	// 	free_double_p((*conf)->map->sketch);
-	// if ((*conf)->map->file)
-	// 	free_double_p((*conf)->map->file);
-	// if ((*conf)->data)
-	// 	free((*conf)->data);
-	// if (*conf)
-	// 	free(*conf);
+	if ((*conf)->map->file)
+		free_double_p((*conf)->map->file);
+	if ((*conf)->map->sketch)
+		free((*conf)->map->sketch);
+	if ((*conf)->data)
+		free((*conf)->data);
+	if (*conf)
+		free(*conf);
 	if (message)
 		ft_putendl_fd(message, STDERR_FILENO);
-	(void)conf;
 	return (r_value);
 }
 
 void	*free_void_err(t_config **conf, char *message)
 {
-	(void)conf;
-	// if ((*conf)->map->sketch)
-	// 	free_double_p((*conf)->map->sketch);
-	// if ((*conf)->map->file)
-	// 	free_double_p((*conf)->map->file);
-	// if ((*conf)->data)
-	// 	free((*conf)->data);
-	// if (*conf)
-	// 	free(*conf);
+	if ((*conf)->map->file)
+		free_double_p((*conf)->map->file);
+	if ((*conf)->map->sketch)
+		free((*conf)->map->sketch);
+	if ((*conf)->data)
+		free((*conf)->data);
+	if (*conf)
+		free(*conf);
 	if (message)
 		ft_putendl_fd(message, STDERR_FILENO);
 	return (NULL);
@@ -47,21 +44,20 @@ void	*free_void_err(t_config **conf, char *message)
 
 int	ft_close(t_config **conf)
 {
-	// if ((*conf)->mlx->win)
-	// 	mlx_destroy_window((*conf)->mlx->mlx, (*conf)->mlx->win);
-	// if ((*conf)->mlx->img)
-	// 	mlx_destroy_image((*conf)->mlx->mlx, (*conf)->mlx->img);
-	// if ((*conf)->mlx)
-	// 	free((*conf)->mlx);
-	// if ((*conf)->map->sketch)
-	// 	free_double_p((*conf)->map->sketch);
-	// if ((*conf)->map->file)
-	// 	free_double_p((*conf)->map->file);
-	// if ((*conf)->data)
-	// 	free((*conf)->data);
-	// if (*conf)
-	// 	free(*conf);
-	(void)conf;
+	if ((*conf)->mlx->win)
+		mlx_destroy_window((*conf)->mlx->mlx, (*conf)->mlx->win);
+	if ((*conf)->mlx->img)
+		mlx_destroy_image((*conf)->mlx->mlx, (*conf)->mlx->img);
+	if ((*conf)->mlx)
+		free((*conf)->mlx);
+	if ((*conf)->map->file)
+		free_double_p((*conf)->map->file);
+	if ((*conf)->map->sketch)
+		free((*conf)->map->sketch);
+	if ((*conf)->data)
+		free((*conf)->data);
+	if (*conf)
+		free(*conf);
 	exit(EXIT_SUCCESS);
 	return (SUCCESS);
 }
