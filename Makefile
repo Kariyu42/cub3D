@@ -6,7 +6,7 @@
 #    By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/30 16:25:28 by kquetat-          #+#    #+#              #
-#    Updated: 2023/12/31 08:07:45 by kquetat-         ###   ########.fr        #
+#    Updated: 2023/12/31 11:58:45 by kquetat-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -98,7 +98,7 @@ ifeq (${OS_NAME}, Linux)
 ${NAME}:	brew_libft brew_mlx ${OBJ}
 	@clear
 	@printf "\n\n${GRAY}━━━━━━━━━━━━━━━━━━━━━━━━━━━━${RESET}\n"
-	@${CC} ${CFLAGS} -Lmlx/linux -lmlx -lXext -lX11 -lm -lz ${OBJ} -o ${NAME} ${LIBFT}libft.a 
+	@${CC} ${CFLAGS} ${OBJ} -Lmlx/linux -lmlx -lXext -lX11 -lm -lz -o ${NAME} ${LIBFT}libft.a
 	@printf "${BOLD}${GREEN} ↳ ${BLUE}[${PURPLE}${NAME}${BLUE}] ${GREEN}compiled !${RESET}"
 	@printf "\n${GRAY}━━━━━━━━━━━━━━━━━━━━━━━━━━━━${RESET}\n"
 endif
