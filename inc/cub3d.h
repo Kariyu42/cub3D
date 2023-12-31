@@ -1,26 +1,33 @@
 #include "../Lib/Libft/inc/libft.h"
 #include "../Lib/Libft/inc/get_next_line.h"
-#include "../mlx/mlx.h"
+
+#ifdef __APPLE__
+#  include "../mlx/macos/mlx.h"
+// KEY PRESSED
+#  define ESC_KEY 53
+#  define RIGHT_KEY 124
+#  define LEFT_KEY 123
+#  define W_KEY 13
+#  define D_KEY 2
+#  define S_KEY 1
+#  define A_KEY 0
+# else
+#  include "../mlx/linux/mlx.h"
+#  define ESC_KEY 65307
+#  define RIGHT_KEY 65363
+#  define LEFT_KEY 65361
+#  define W_KEY 119
+#  define D_KEY 100
+#  define S_KEY 115
+#  define A_KEY 97
+#endif
 
 #include <fcntl.h>
 #include <stdbool.h>
 #include <math.h>
 
-# define WHITE 0xFFFFFF
-# define GRAY 0x808080
-
 # define MOVE_SPEED 0.1
 # define ROT_SPEED 0.05
-
-// KEY PRESSED
-# define ESC_KEY 53
-# define RIGHT_KEY 124
-# define LEFT_KEY 123
-# define W_KEY 13
-# define D_KEY 2
-# define S_KEY 1
-# define A_KEY 0
-
 
 // Size of the screen
 # define WIDTH 1080

@@ -5,7 +5,7 @@ char	**get_wall_texture(t_config **conf)
 {
 	char	**table;
 
-	table = malloc(sizeof(char *) * 4);
+	table = malloc(sizeof(char *) * 5);
 	if (!table)
 		return (NULL);
 	table[0] = (*conf)->data->no_text;
@@ -41,5 +41,6 @@ int	stock_image(t_config **conf)
 		if (!(*conf)->text[i].addr)
 			return (-1);
 	}
+	free(wall_text);
 	return (SUCCESS);
 }

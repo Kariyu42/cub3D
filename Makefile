@@ -6,7 +6,7 @@
 #    By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/30 16:25:28 by kquetat-          #+#    #+#              #
-#    Updated: 2023/12/30 17:13:59 by kquetat-         ###   ########.fr        #
+#    Updated: 2023/12/31 07:36:11 by kquetat-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,9 @@ RED			=	\033[31m
 GREEN		=	\033[32m
 BLUE		=	\033[34m
 PURPLE		=	\033[35m
+
+### OS Check ###
+OS_NAME		:=	${shell uname -s}
 
 # --- SRC / OBJ --- #
 SRC_PATH	=	./src/
@@ -50,13 +53,26 @@ OBJ			=	${SRC:.c=.o}
 CC			=	cc
 CFLAGS		=	-Wall -Wextra -Werror
 OFLAGS		=	-framework OpenGL -framework AppKit
+HEADER		=	./inc/
+MLX_DIR		=	./mlx/macos/
+
+# --- OS Compilation Flags --- #
+ifeq (${OS_NAME}, Linux)
+	CFLAGS	+=	-Imlx/linux/
+	LIBMLX	=	./mlx/linux/libmlx.a
+	MLX_DIR	=	./mlx/linux/
+endif
+
+ifeq (${OS_NAME}, Darwin)
+	CFLAGS	+=	-Imlx/macos
+	LIBMLX	=	./mlx/macos/libmlx.a
+	MLX_DIR	=	./mlx/macos/
+endif
 
 # --- DEBUG PURPOSES --- #
 ifdef	DEBUG
 	CC	+=	-g
 endif
-
-HEADER		=	./inc/
 
 ### Loading Bar ###
 COUNTER		=	0
@@ -75,36 +91,47 @@ ${SRC_PATH}%.o: ${SRC_PATH}%.c
 # --- EXEC / RULES --- #
 NAME		=	cub3D
 LIBFT		=	./Lib/Libft/
-MLX			=	./mlx/
 
 all:	${NAME}
 
+ifeq (${OS_NAME}, Linux)
 ${NAME}:	brew_libft brew_mlx ${OBJ}
 	@clear
 	@printf "\n\n${GRAY}━━━━━━━━━━━━━━━━━━━━━━━━━━━━${RESET}\n"
-	@${CC} ${CFLAGS} -Lmlx -lmlx ${OFLAGS} ${LIBFT}libft.a ${MLX}libmlx.a ${OBJ} -o ${NAME}
+	@${CC} ${CFLAGS} -Lmlx/linux -lmlx -lXext -lX11 -lm -lz ${OBJ} -o ${NAME} ${LIBFT}libft.a 
 	@printf "${BOLD}${GREEN} ↳ ${BLUE}[${PURPLE}${NAME}${BLUE}] ${GREEN}compiled !${RESET}"
 	@printf "\n${GRAY}━━━━━━━━━━━━━━━━━━━━━━━━━━━━${RESET}\n"
+endif
+
+ifeq (${OS_NAME}, Darwin)
+${NAME}:	brew_libft brew_mlx ${OBJ}
+	@clear
+	@printf "\n\n${GRAY}━━━━━━━━━━━━━━━━━━━━━━━━━━━━${RESET}\n"
+	@${CC} ${CFLAGS} -Lmlx/macos -lmlx ${OFLAGS} ${LIBFT}libft.a ${OBJ} -o ${NAME}
+	@printf "${BOLD}${GREEN} ↳ ${BLUE}[${PURPLE}${NAME}${BLUE}] ${GREEN}compiled !${RESET}"
+	@printf "\n${GRAY}━━━━━━━━━━━━━━━━━━━━━━━━━━━━${RESET}\n"
+endif
 
 brew_libft:
 	@make -C ${LIBFT}
 
 brew_mlx:
-	@make -C ${MLX}
+	@make -C ${MLX_DIR}
 
 debug:
 	@${MAKE} DEBUG=1
 
 clean:
 	@make clean -C ${LIBFT}
+	@make clean -C ${MLX_DIR}
 	@rm -f ${OBJ}
 	@printf "\n${GRAY}━━━━━━━━━━━━━━━━━━━━━━━━━━━━${RESET}\n"
 	@printf "${BOLD}${GREEN} ↳ ${BLUE}[${PURPLE}${NAME}${BLUE}] object ${RED}cleaned${RESET}"
 	@printf "\n${GRAY}━━━━━━━━━━━━━━━━━━━━━━━━━━━━${RESET}\n"
 
 fclean:	clean
-	@make clean -C ${MLX}
-	@rm -f ${LIBFT}libft.a ${NAME}
+	@make fclean -C ${LIBFT}
+	@rm -f ${NAME}
 	@printf "\n${GRAY}━━━━━━━━━━━━━━━━━━━━━━━━━━━━${RESET}\n"
 	@printf "${BOLD}${GREEN} ↳ ${BLUE}[${PURPLE}${NAME}${BLUE}] ${RED}removed${RESET}"
 	@printf "\n${GRAY}━━━━━━━━━━━━━━━━━━━━━━━━━━━━${RESET}\n"

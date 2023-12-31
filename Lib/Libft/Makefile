@@ -17,7 +17,6 @@ SRC	=	${addprefix ${SRC_PATH}, ft_atoi.c \
 										ft_calloc.c \
 										ft_isalpha.c \
 										ft_isdigit.c \
-										ft_itoa.c \
 										ft_putchar_fd.c \
 										ft_putendl_fd.c \
 										ft_putnbr_fd.c \
@@ -47,13 +46,13 @@ COUNTER		=	0
 CUR_UP		=	\033[A
 TOTAL_SRCS	=	${shell find . -type f -name "*.c" | wc -l}
 PERCENT		=	${shell expr 100 \* ${COUNTER} / ${TOTAL_SRCS}}
-BAR			=	${shell expr 20 \* ${COUNTER} / ${TOTAL_SRCS}}
+BAR			=	${shell expr 19 \* ${COUNTER} / ${TOTAL_SRCS}}
 
 ${SRC_PATH}%.o: ${SRC_PATH}%.c
 	@${eval COUNTER = ${shell expr ${COUNTER} + 1}}
 	@${CC} ${CFLAGS} -I${HEADER} -c $< -o $@
 	@echo " ${GREEN}${BOLD} ↳ ${BLUE}cooking [${GREEN}libft.a${BLUE}]:${RESET}"
-	@printf "\t\t\t${BOLD}${BLUE}[${PURPLE}%-20.${BAR}s${BLUE}] %d/%d [${GREEN}%d%%${BLUE}]${RESET}" "////////////////////" ${COUNTER} ${TOTAL_SRCS} ${PERCENT}
+	@printf "\t\t\t${BOLD}${BLUE}[${PURPLE}%-19.${BAR}s${BLUE}] %d/%d [${GREEN}%d%%${BLUE}]${RESET}" "////////////////////" ${COUNTER} ${TOTAL_SRCS} ${PERCENT}
 	@echo "${CUR_UP}${CUR_UP}"
 
 ### Name of lib ###
