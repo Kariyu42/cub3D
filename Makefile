@@ -6,7 +6,7 @@
 #    By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/30 16:25:28 by kquetat-          #+#    #+#              #
-#    Updated: 2023/12/31 11:58:45 by kquetat-         ###   ########.fr        #
+#    Updated: 2023/12/31 13:08:19 by kquetat-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,7 +71,7 @@ endif
 
 # --- DEBUG PURPOSES --- #
 ifdef	DEBUG
-	CC	+=	-g
+	CC	+=	-g -fsanitize=address
 endif
 
 ### Loading Bar ###

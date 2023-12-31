@@ -3,8 +3,8 @@
 
 int	valid_filename(char *str, int len)
 {
-	if ((str[len - 4] != '.' && str[len - 3] != 'c'
-		&& str[len - 2] != 'u' && str[len - 1] != 'b'))
+	if (str[len - 4] != '.' || str[len - 3] != 'c'
+		|| str[len - 2] != 'u' || str[len - 1] != 'b')
 		return (ft_putendl_fd(EXT_ERR, STDERR_FILENO));
 	len -= 4;
 	if (len <= 0)

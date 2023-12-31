@@ -54,7 +54,7 @@ int	init_map_data(t_config **conf)
 	data = (*conf)->data;
 	file = (*conf)->map->file;
 	while (++i < (*conf)->map->map_loc)
-		if (get_textures(file, data, i) == 2 || get_colors(conf, file, i) == 2)
+		if (get_textures(file, data, i) == -1 || get_colors(conf, file, i) == -1)
 			return (DATA_ERR);
 	if (data->count_data != 6)
 		return (ft_putendl_fd(ELEMENT_ERR, STDERR_FILENO));
