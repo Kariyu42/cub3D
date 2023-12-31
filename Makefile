@@ -6,7 +6,7 @@
 #    By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/30 16:25:28 by kquetat-          #+#    #+#              #
-#    Updated: 2023/12/31 07:36:11 by kquetat-         ###   ########.fr        #
+#    Updated: 2023/12/31 08:07:45 by kquetat-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -83,7 +83,7 @@ BAR			=	${shell expr 19 \* ${COUNTER} / ${TOTAL_SRCS}}
 
 ${SRC_PATH}%.o: ${SRC_PATH}%.c
 	@${eval COUNTER = ${shell expr ${COUNTER} + 1}}
-	@${CC} ${CFLAGS} -Imlx -I${HEADER} -c $< -o $@
+	@${CC} ${CFLAGS} -I${MLX_DIR} -I${HEADER} -c $< -o $@
 	@echo " ${GREEN}${BOLD} ↳ ${BLUE}cooking [${PURPLE}${NAME}${BLUE}]:${RESET}"
 	@printf "\t\t\t${BOLD}${BLUE}[${PURPLE}%-19.${BAR}s${BLUE}] %d/%d [${GREEN}%d%%${BLUE}]${RESET}" "////////////////////" ${COUNTER} ${TOTAL_SRCS} ${PERCENT}
 	@echo "${CUR_UP}${CUR_UP}"
