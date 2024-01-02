@@ -6,12 +6,10 @@ void	ft_destroy_img(t_config **conf, t_mlx *table)
 	int		i;
 	t_mlx	*mlx;
 
-	if (!table)
-		return ;
 	i = -1;
 	mlx = (*conf)->mlx;
-	while (++i < 4)
-		mlx_destroy_image(mlx->mlx, &table[i].img);
+	while (++i < NBR_TEXTURE)
+		mlx_destroy_image(mlx->mlx, table[i].img);
 	if ((*conf)->mlx->win)
 		mlx_destroy_window((*conf)->mlx->mlx, (*conf)->mlx->win);
 	if ((*conf)->mlx->img)
