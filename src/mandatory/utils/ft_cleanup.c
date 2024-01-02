@@ -35,6 +35,8 @@ int	free_table_err(t_config **conf, char *message, int r_value)
 		free_double_p((*conf)->map->file);
 	if ((*conf)->map->sketch)
 		free((*conf)->map->sketch);
+	if ((*conf)->map)
+		free((*conf)->map);
 	if ((*conf)->data->c_color)
 		free_double_p((*conf)->data->c_color);
 	if ((*conf)->data->f_color)
