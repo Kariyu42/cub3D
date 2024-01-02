@@ -6,7 +6,7 @@
 #    By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/30 16:25:28 by kquetat-          #+#    #+#              #
-#    Updated: 2023/12/31 13:08:19 by kquetat-         ###   ########.fr        #
+#    Updated: 2024/01/01 15:49:54 by kquetat-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,9 +25,10 @@ PURPLE		=	\033[35m
 OS_NAME		:=	${shell uname -s}
 
 # --- SRC / OBJ --- #
-SRC_PATH	=	./src/
+MAIN_SRC_PATH	=	./src/mandatory/
+BONUS_SRC_PATH	=	./src/bonus/
 
-SRC			=	${addprefix ${SRC_PATH}, main.c \
+SRC			=	${addprefix ${MAIN_SRC_PATH}, main.c \
 											game/key_handler.c \
 											initialize/init_cub.c \
 											initialize/init_struct.c \
@@ -46,6 +47,26 @@ SRC			=	${addprefix ${SRC_PATH}, main.c \
 											utils/ft_utils.c \
 											utils/ft_utils2.c \
 											utils/map_tools.c}
+
+SRC_BONUS	=	${addprefix ${BONUS_SRC_PATH}, main_bonus.c\
+											game_bonus/key_handler_bonus.c \
+											initialize_bonus/init_cub_bonus.c \
+											initialize_bonus/init_struct_bonus.c \
+											initialize_bonus/mlx_win_bonus.c \
+											initialize_bonus/stock_img_bonus.c \
+											parsing_bonus/check_color_bonus.c \
+											parsing_bonus/get_texture_bonus.c \
+											parsing_bonus/inspect_dup_bonus.c \
+											parsing_bonus/map_data_bonus.c \
+											parsing_bonus/map_parser_bonus.c \
+											parsing_bonus/parsing_bonus.c \
+											raycast_bonus/drawing_bonus.c \
+											raycast_bonus/raycasting_bonus.c \
+											raycast_bonus/texture_bonus.c \
+											utils_bonus/ft_cleanup_bonus.c \
+											utils_bonus/ft_utils_bonus.c \
+											utils_bonus/ft_utils2_bonus.c \
+											utils_bonus/map_tools_bonus.c}
 
 OBJ			=	${SRC:.c=.o}
 
@@ -71,7 +92,7 @@ endif
 
 # --- DEBUG PURPOSES --- #
 ifdef	DEBUG
-	CC	+=	-g -fsanitize=address
+	CC	+=	-g
 endif
 
 ### Loading Bar ###

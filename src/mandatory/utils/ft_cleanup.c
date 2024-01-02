@@ -6,6 +6,8 @@ void	free_double_p(char **table)
 	int	i;
 
 	i = -1;
+	if (!table)
+		return ;
 	while (table[++i])
 		free(table[i]);
 	free(table);
@@ -18,8 +20,16 @@ int	free_table_err(t_config **conf, char *message, int r_value)
 		free_double_p((*conf)->map->file);
 	if ((*conf)->map->sketch)
 		free((*conf)->map->sketch);
+	if ((*conf)->data->c_color)
+		free_double_p((*conf)->data->c_color);
+	if ((*conf)->data->f_color)
+		free_double_p((*conf)->data->f_color);
 	if ((*conf)->data)
 		free((*conf)->data);
+	if ((*conf)->usr)
+		free((*conf)->usr);
+	if ((*conf)->ray)
+		free((*conf)->ray);
 	if (*conf)
 		free(*conf);
 	if (message)
@@ -33,8 +43,16 @@ void	*free_void_err(t_config **conf, char *message)
 		free_double_p((*conf)->map->file);
 	if ((*conf)->map->sketch)
 		free((*conf)->map->sketch);
+	if ((*conf)->data->c_color)
+		free_double_p((*conf)->data->c_color);
+	if ((*conf)->data->f_color)
+		free_double_p((*conf)->data->f_color);
 	if ((*conf)->data)
 		free((*conf)->data);
+	if ((*conf)->usr)
+		free((*conf)->usr);
+	if ((*conf)->ray)
+		free((*conf)->ray);
 	if (*conf)
 		free(*conf);
 	if (message)
@@ -50,14 +68,7 @@ int	ft_close(t_config **conf)
 		mlx_destroy_image((*conf)->mlx->mlx, (*conf)->mlx->img);
 	if ((*conf)->mlx)
 		free((*conf)->mlx);
-	if ((*conf)->map->file)
-		free_double_p((*conf)->map->file);
-	if ((*conf)->map->sketch)
-		free((*conf)->map->sketch);
-	if ((*conf)->data)
-		free((*conf)->data);
-	if (*conf)
-		free(*conf);
+	free_table_err(conf, NULL, 0);
 	exit(EXIT_SUCCESS);
 	return (SUCCESS);
 }
