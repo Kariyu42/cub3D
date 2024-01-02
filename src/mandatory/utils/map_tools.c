@@ -63,12 +63,21 @@ char	*trim_newline(char *str, char c)
 
 int	text_size(char **av, int fd)
 {
-	int	len;
+	int		len;
+	char	*to_free;
 
 	fd = open(av[1], O_RDONLY);
 	len = 0;
-	while (get_next_line(fd))
+	to_free = get_next_line(fd);
+	if (!to_free)
+		return (0);
+	len++;
+	while (to_free)
+	{
+		free(to_free);
+		to_free = get_next_line(fd);
 		len++;
+	}
 	close(fd);
 	return (len);
 }
