@@ -28,14 +28,11 @@
 
 # define MOVE_SPEED 0.1
 # define ROT_SPEED 0.05
+# define NBR_TEXTURE 4
 
 // Size of the screen
 # define WIDTH 1080
 # define HEIGHT 720
-
-// Size of Minimap
-# define MINIMAP_W 300
-# define MINIMAP_H 150
 
 // Size of Textures
 # define TEXTURE_W 64
@@ -145,7 +142,7 @@ typedef struct s_config
 {
 	t_map		*map;
 	t_data		*data;
-	t_mlx		text[4];
+	t_mlx		text[NBR_TEXTURE];
 	t_mlx		*mlx;
 	t_ray		*ray;
 	t_player	*usr;

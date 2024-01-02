@@ -48,10 +48,10 @@ static int	inspect_map(t_config **conf)
 		return (ft_putendl_fd(MALLOC_ERR, STDERR_FILENO));
 	if (flood_fill(map, tmp) == false)
 	{
-		// free_double_p(tmp);
+		free_double_p(tmp);
 		return (ft_putendl_fd(FLOOD_ERR, STDERR_FILENO));
 	}
-	// free_double_p(tmp);
+	free_double_p(tmp);
 	return (SUCCESS);
 }
 

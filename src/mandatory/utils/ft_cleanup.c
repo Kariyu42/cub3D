@@ -1,6 +1,23 @@
 #include "cub3d.h"
 #include "err_type.h"
 
+void	ft_destroy_img(t_config **conf, t_mlx *table)
+{
+	int		i;
+	t_mlx	*mlx;
+
+	if (!table)
+		return ;
+	i = -1;
+	mlx = (*conf)->mlx;
+	while (++i < 4)
+		mlx_destroy_image(mlx->mlx, &table[i].img);
+	if ((*conf)->mlx->win)
+		mlx_destroy_window((*conf)->mlx->mlx, (*conf)->mlx->win);
+	if ((*conf)->mlx->img)
+		mlx_destroy_image((*conf)->mlx->mlx, (*conf)->mlx->img);
+}
+
 void	free_double_p(char **table)
 {
 	int	i;
@@ -62,10 +79,7 @@ void	*free_void_err(t_config **conf, char *message)
 
 int	ft_close(t_config **conf)
 {
-	if ((*conf)->mlx->win)
-		mlx_destroy_window((*conf)->mlx->mlx, (*conf)->mlx->win);
-	if ((*conf)->mlx->img)
-		mlx_destroy_image((*conf)->mlx->mlx, (*conf)->mlx->img);
+	ft_destroy_img(conf, (*conf)->text);
 	if ((*conf)->mlx)
 		free((*conf)->mlx);
 	free_table_err(conf, NULL, 0);
