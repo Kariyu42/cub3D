@@ -1,7 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   init_cub.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/03 17:20:13 by kquetat-          #+#    #+#             */
+/*   Updated: 2024/01/03 17:38:55 by kquetat-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3d.h"
 #include "err_type.h"
 
-void	setup_player(t_player *character, char c)
+static void	setup_player(t_player *character, char c)
 {
 	if (c == 'N')
 	{
@@ -25,21 +37,21 @@ void	setup_player(t_player *character, char c)
 	}
 }
 
-char	identify_pos_player(t_player *p, int j, char *map_part, bool *identified)
+static char	identify_pos_player(t_player *p, int j, char *map, bool *id)
 {
 	int		i;
 	char	c;
 
 	i = -1;
 	c = '\0';
-	while (map_part[++i])
+	while (map[++i])
 	{
-		if (ft_strchr("NWES", map_part[i]) != 0)
+		if (ft_strchr("NWES", map[i]) != 0)
 		{
 			p->pos_y = i + 0.5;
 			p->pos_x = j + 0.5;
-			c = map_part[i];
-			*identified = true;
+			c = map[i];
+			*id = true;
 			break ;
 		}
 	}

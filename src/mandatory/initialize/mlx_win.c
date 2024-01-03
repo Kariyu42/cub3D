@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   mlx_win.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/03 17:22:28 by kquetat-          #+#    #+#             */
+/*   Updated: 2024/01/03 17:24:13 by kquetat-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3d.h"
 #include "err_type.h"
 
@@ -6,7 +18,7 @@ void	my_mlx_pixel_put(t_mlx *data, int x, int y, int color)
 	char	*dst;
 
 	dst = data->addr + (y * data->line_len + x * (data->bpp / 8));
-	*(unsigned int*)dst = color;
+	*(unsigned int *)dst = color;
 }
 
 int	get_pixel_color(t_mlx *data, int x, int y)
@@ -14,7 +26,7 @@ int	get_pixel_color(t_mlx *data, int x, int y)
 	char	*dst;
 
 	dst = data->addr + (y * data->line_len + x * (data->bpp / 8));
-	return (*(unsigned int*)dst);
+	return (*(unsigned int *)dst);
 }
 
 int	initialize_mlx_win(t_config **conf)
@@ -25,7 +37,8 @@ int	initialize_mlx_win(t_config **conf)
 	(*conf)->mlx->mlx = mlx_init();
 	if (!(*conf)->mlx->mlx)
 		return (ft_putendl_fd(INIT_ERR, STDERR_FILENO));
-	(*conf)->mlx->win = mlx_new_window((*conf)->mlx->mlx, WIDTH, HEIGHT, "Cub3D");
+	(*conf)->mlx->win = mlx_new_window((*conf)->mlx->mlx, \
+		WIDTH, HEIGHT, "Cub3D");
 	if (!(*conf)->mlx->win)
 		return (-1);
 	(*conf)->mlx->img = mlx_new_image((*conf)->mlx->mlx, WIDTH, HEIGHT);

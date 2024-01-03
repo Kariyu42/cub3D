@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_utils.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/03 17:24:36 by kquetat-          #+#    #+#             */
+/*   Updated: 2024/01/03 17:25:29 by kquetat-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3d.h"
 #include "err_type.h"
 
@@ -42,8 +54,8 @@ int	check_extension(char *str)
 
 t_pos	find_pos(char letter, char **map)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 	t_pos	pos;
 
 	i = -1;

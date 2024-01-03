@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   err_type.h                                         :+:      :+:    :+:   */
+/*   err_type_bonus.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/03 16:57:10 by kquetat-          #+#    #+#             */
-/*   Updated: 2024/01/03 16:58:45 by kquetat-         ###   ########.fr       */
+/*   Created: 2024/01/03 16:59:10 by kquetat-          #+#    #+#             */
+/*   Updated: 2024/01/03 16:59:30 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ERR_TYPE_H
-# define ERR_TYPE_H
+#ifndef ERR_TYPE_BONUS_H
+# define ERR_TYPE_BONUS_H
 
 # include "../Lib/Libft/inc/libft.h"
 

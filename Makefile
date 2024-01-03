@@ -6,7 +6,7 @@
 #    By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/30 16:25:28 by kquetat-          #+#    #+#              #
-#    Updated: 2024/01/01 15:49:54 by kquetat-         ###   ########.fr        #
+#    Updated: 2024/01/03 16:39:56 by kquetat-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,6 +69,7 @@ SRC_BONUS	=	${addprefix ${BONUS_SRC_PATH}, main_bonus.c\
 											utils_bonus/map_tools_bonus.c}
 
 OBJ			=	${SRC:.c=.o}
+OBJ_BONUS	=	${SRC_BONUS:.c=.o}
 
 # --- COMPILER --- #
 CC			=	cc
@@ -98,11 +99,27 @@ endif
 ### Loading Bar ###
 COUNTER		=	0
 CUR_UP		=	\033[A
-TOTAL_SRCS	=	${shell find . -type f -name "*.c" -not -path "./Lib/Libft/*" -not -path "./mlx/*" | wc -l}
-PERCENT		=	${shell expr 100 \* ${COUNTER} / ${TOTAL_SRCS}}
-BAR			=	${shell expr 19 \* ${COUNTER} / ${TOTAL_SRCS}}
 
-${SRC_PATH}%.o: ${SRC_PATH}%.c
+# add correct path according to the cmd #
+ifdef	BREW_BONUS
+	PATH_LOAD_BAR	=	./src/bonus/
+	BAR				=	${shell expr 19 \* ${COUNTER} / ${TOTAL_SRCS}}
+else
+	PATH_LOAD_BAR	=	./src/mandatory/
+	BAR				=	${shell expr 19 \* ${COUNTER} / ${TOTAL_SRCS}}
+endif
+
+TOTAL_SRCS	=	${shell find ${PATH_LOAD_BAR} -type f -name "*.c" -not -path "./Lib/Libft/*" -not -path "./mlx/*" | wc -l}
+PERCENT		=	${shell expr 100 \* ${COUNTER} / ${TOTAL_SRCS}}
+
+${MAIN_SRC_PATH}%.o: ${MAIN_SRC_PATH}%.c
+	@${eval COUNTER = ${shell expr ${COUNTER} + 1}}
+	@${CC} ${CFLAGS} -I${MLX_DIR} -I${HEADER} -c $< -o $@
+	@echo " ${GREEN}${BOLD} ↳ ${BLUE}cooking [${PURPLE}${NAME}${BLUE}]:${RESET}"
+	@printf "\t\t\t${BOLD}${BLUE}[${PURPLE}%-19.${BAR}s${BLUE}] %d/%d [${GREEN}%d%%${BLUE}]${RESET}" "////////////////////" ${COUNTER} ${TOTAL_SRCS} ${PERCENT}
+	@echo "${CUR_UP}${CUR_UP}"
+
+${BONUS_SRC_PATH}%.o: ${BONUS_SRC_PATH}%.c
 	@${eval COUNTER = ${shell expr ${COUNTER} + 1}}
 	@${CC} ${CFLAGS} -I${MLX_DIR} -I${HEADER} -c $< -o $@
 	@echo " ${GREEN}${BOLD} ↳ ${BLUE}cooking [${PURPLE}${NAME}${BLUE}]:${RESET}"
@@ -111,6 +128,7 @@ ${SRC_PATH}%.o: ${SRC_PATH}%.c
 
 # --- EXEC / RULES --- #
 NAME		=	cub3D
+NAME_BONUS	=	cub3D_bonus
 LIBFT		=	./Lib/Libft/
 
 all:	${NAME}
@@ -122,10 +140,24 @@ ${NAME}:	brew_libft brew_mlx ${OBJ}
 	@${CC} ${CFLAGS} ${OBJ} -Lmlx/linux -lmlx -lXext -lX11 -lm -lz -o ${NAME} ${LIBFT}libft.a
 	@printf "${BOLD}${GREEN} ↳ ${BLUE}[${PURPLE}${NAME}${BLUE}] ${GREEN}compiled !${RESET}"
 	@printf "\n${GRAY}━━━━━━━━━━━━━━━━━━━━━━━━━━━━${RESET}\n"
+
+bonus:	brew_libft brew_mlx ${OBJ_BONUS}
+	@clear
+	@printf "\n\n${GRAY}━━━━━━━━━━━━━━━━━━━━━━━━━━━━${RESET}\n"
+	@${CC} ${CFLAGS} ${OBJ} -Lmlx/linux -lmlx -lXext -lX11 -lm -lz -o ${NAME} ${LIBFT}libft.a
+	@printf "${BOLD}${GREEN} ↳ ${BLUE}[${PURPLE}${NAME_BONUS}${BLUE}] ${GREEN}compiled !${RESET}"
+	@printf "\n${GRAY}━━━━━━━━━━━━━━━━━━━━━━━━━━━━${RESET}\n"
 endif
 
 ifeq (${OS_NAME}, Darwin)
 ${NAME}:	brew_libft brew_mlx ${OBJ}
+	@clear
+	@printf "\n\n${GRAY}━━━━━━━━━━━━━━━━━━━━━━━━━━━━${RESET}\n"
+	@${CC} ${CFLAGS} -Lmlx/macos -lmlx ${OFLAGS} ${LIBFT}libft.a ${OBJ} -o ${NAME}
+	@printf "${BOLD}${GREEN} ↳ ${BLUE}[${PURPLE}${NAME}${BLUE}] ${GREEN}compiled !${RESET}"
+	@printf "\n${GRAY}━━━━━━━━━━━━━━━━━━━━━━━━━━━━${RESET}\n"
+
+bonus:	brew_libft brew_mlx ${OBJ_BONUS}
 	@clear
 	@printf "\n\n${GRAY}━━━━━━━━━━━━━━━━━━━━━━━━━━━━${RESET}\n"
 	@${CC} ${CFLAGS} -Lmlx/macos -lmlx ${OFLAGS} ${LIBFT}libft.a ${OBJ} -o ${NAME}
@@ -160,4 +192,4 @@ fclean:	clean
 re:	fclean
 	@${MAKE} all
 
-.PHONY: all brew_libft brew_mlx debug clean fclean re
+.PHONY: all brew_libft brew_mlx debug bonus clean fclean re

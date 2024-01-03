@@ -1,15 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   raycasting.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/03 17:34:43 by kquetat-          #+#    #+#             */
+/*   Updated: 2024/01/03 17:35:48 by kquetat-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3d.h"
 
-/*
-* 1. ce calcul permet de placer chaque colonne de l'ecran dans l'intervalle -1 à 1. 
-* -> qui donc représente la perspective linéaire de gauche à droite.
-* 2. ces calculs permette d'ajuster la direction du rayon en fonction de la postion
-* -> sur l'ecran. Donc en fonction de cam_x les variables plane_x et plane_y 
-* -> introduisent la perspective horizontale.
-* 3. represente la case de la map dans lequel le ray se trouve.
-* 4. deltaX et deltaY sont des variables que le rayon doit parcourir pour passer
-* -> d'un côté x à l'autre ou d'un côté y à l'autre.
-*/
 void	init_ray_dir(t_ray *ray, t_player *usr, int x)
 {
 	ray->cam_x = 2 * x / (double)WIDTH - 1;

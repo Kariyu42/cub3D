@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   map_data.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/03 17:36:09 by kquetat-          #+#    #+#             */
+/*   Updated: 2024/01/03 17:37:29 by kquetat-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3d.h"
 #include "err_type.h"
 
@@ -54,7 +66,7 @@ int	init_map_data(t_config **conf)
 	data = (*conf)->data;
 	file = (*conf)->map->file;
 	while (++i < (*conf)->map->map_loc)
-		if (get_textures(file, data, i) == -1 || get_colors(conf, file, i) == -1)
+		if (get_textures(file, data, i) < 0 || get_colors(conf, file, i) < 0)
 			return (DATA_ERR);
 	if (data->count_data != 6)
 		return (ft_putendl_fd(ELEMENT_ERR, STDERR_FILENO));

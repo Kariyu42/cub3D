@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 16:42:39 by kquetat-          #+#    #+#             */
-/*   Updated: 2024/01/03 17:00:28 by kquetat-         ###   ########.fr       */
+/*   Updated: 2024/01/03 17:11:53 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#ifndef CUB3D_BONUS_H
+# define CUB3D_BONUS_H
 
 # include "../Lib/Libft/inc/libft.h"
 # include "../Lib/Libft/inc/get_next_line.h"
@@ -45,7 +45,7 @@
 // Game Macros
 # define MOVE_SPEED 0.1
 # define ROT_SPEED 0.05
-# define NBR_TEXTURE 4
+# define NBR_TEXTURE 5
 
 // Size of the screen
 # define WIDTH 1080
@@ -60,7 +60,8 @@ typedef enum e_dir
 	NORTH,
 	SOUTH,
 	EAST,
-	WEST
+	WEST,
+	DOOR
 }	t_dir;
 
 typedef struct s_pos
