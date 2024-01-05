@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 17:34:37 by kquetat-          #+#    #+#             */
-/*   Updated: 2024/01/04 19:59:13 by kquetat-         ###   ########.fr       */
+/*   Updated: 2024/01/05 15:08:57 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ int	init_game(t_config **conf)
 	if (render_game(conf, (*conf)->ray, (*conf)->usr) < 0)
 		return (-1);
 	load_minimap_img(conf);
-	if (ft_load_minimap(conf, (*conf)->mlx->mlx) != SUCCESS)
+	if (ft_load_minimap(conf, (*conf)->mlx) != SUCCESS)
 		return (ft_putendl_fd(MINIMAP_ERR, STDERR_FILENO));
 	mlx_loop_hook(mlx->mlx, &game_loop, conf);
 	mlx_hook(mlx->win, 2, 1L << 0, &key_handler, conf);

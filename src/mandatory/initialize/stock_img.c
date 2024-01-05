@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 17:22:21 by kquetat-          #+#    #+#             */
-/*   Updated: 2024/01/03 17:22:22 by kquetat-         ###   ########.fr       */
+/*   Updated: 2024/01/05 15:06:25 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	**get_wall_texture(t_config **conf)
 {
 	char	**table;
 
-	table = malloc(sizeof(char *) * 5);
+	table = malloc(sizeof(char *) * NBR_TEXTURE);
 	if (!table)
 		return (NULL);
 	table[0] = (*conf)->data->no_text;
