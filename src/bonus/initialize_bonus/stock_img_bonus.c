@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 17:22:21 by kquetat-          #+#    #+#             */
-/*   Updated: 2024/01/05 15:28:07 by kquetat-         ###   ########.fr       */
+/*   Updated: 2024/01/05 15:30:44 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	stock_image(t_config **conf)
 	width = TEXTURE_W;
 	height = TEXTURE_H;
 	wall_text = get_wall_texture(conf);
-	while (++i < NBR_TEXTURE)
+	while (++i < 5)
 	{
 		(*conf)->text[i].img = mlx_xpm_file_to_image(mlx->mlx, \
 			wall_text[i], &width, &height);
