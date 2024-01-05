@@ -6,14 +6,14 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 17:24:36 by kquetat-          #+#    #+#             */
-/*   Updated: 2024/01/03 17:25:29 by kquetat-         ###   ########.fr       */
+/*   Updated: 2024/01/03 17:44:27 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 #include "err_type.h"
 
-int	valid_filename(char *str, int len)
+static int	valid_filename(char *str, int len)
 {
 	if (str[len - 4] != '.' || str[len - 3] != 'c'
 		|| str[len - 2] != 'u' || str[len - 1] != 'b')

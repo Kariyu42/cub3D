@@ -1,7 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_utils_bonus.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/03 17:43:58 by kquetat-          #+#    #+#             */
+/*   Updated: 2024/01/05 14:38:27 by kquetat-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3d_bonus.h"
 #include "err_type_bonus.h"
 
-int	valid_filename(char *str, int len)
+static int	valid_filename(char *str, int len)
 {
 	if (str[len - 4] != '.' || str[len - 3] != 'c'
 		|| str[len - 2] != 'u' || str[len - 1] != 'b')
@@ -42,8 +54,8 @@ int	check_extension(char *str)
 
 t_pos	find_pos(char letter, char **map)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 	t_pos	pos;
 
 	i = -1;

@@ -1,7 +1,7 @@
-NO textures/north.xpm
-SO ./textures/south.xpm
-WE ./textures/west.xpm
-EA ./textures/east.xpm
+NO textures/minecraft/north.xpm
+SO ./textures/minecraft/south.xpm
+WE ./textures/minecraft/west.xpm
+EA ./textures/minecraft/east.xpm
 
 F 230,30,0
 C 0,30,255

@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 16:42:39 by kquetat-          #+#    #+#             */
-/*   Updated: 2024/01/03 17:11:53 by kquetat-         ###   ########.fr       */
+/*   Updated: 2024/01/05 14:33:18 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@
 #  define D_KEY 2
 #  define S_KEY 1
 #  define A_KEY 0
+#  define MOUSE_TOGGLE 46
+#  define SPACE_BAR 49
 # else
 #  include "../mlx/linux/mlx.h"
 // KEY PRESSED
@@ -54,6 +56,10 @@
 // Size of Textures
 # define TEXTURE_W 64
 # define TEXTURE_H 64
+
+// Size of Minimap
+# define SIZE_MINIMAP 11
+# define MID_MINIMAP 6
 
 typedef enum e_dir
 {
@@ -153,6 +159,16 @@ typedef struct s_data
 	int		c_find;
 	char	**f_color;
 	char	**c_color;
+	char	*door_text;
+	double	pos_mmap_x;
+	double	pos_mmap_y;
+	bool	mouse_show;
+	t_mlx	wall;
+	t_mlx	empty;
+	t_mlx	floor;
+	t_mlx	tex_player;
+	t_mlx	door_o;
+	t_mlx	door_c;
 }	t_data;
 
 typedef struct s_config
@@ -230,9 +246,18 @@ void	fill_colors(char **color_table, int *to_fill);
 int		create_trgb(int t, int r, int g, int b);
 void	apply_texture(t_config **conf, int dir, int x, int y);
 
-/* game function */
+/* GAME FUNCTIONS */
 int		get_pixel_color(t_mlx *data, int x, int y);
 int		key_handler(int key_pressed, t_config **conf);
+void	rotate_keys(t_config **conf, int key_pressed);
+int		game_loop(t_config **conf);
+
+/* MINIMAP FUNCTIONS */
+int		ft_load_minimap(t_config **conf, t_mlx *mlx);
+void	load_minimap_img(t_config **conf);
+
+/* OTHER BONUSES */
+void	handle_door(t_config **conf);
 
 int		ft_close(t_config **conf);
 

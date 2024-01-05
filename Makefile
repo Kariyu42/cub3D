@@ -6,7 +6,7 @@
 #    By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/30 16:25:28 by kquetat-          #+#    #+#              #
-#    Updated: 2024/01/03 16:39:56 by kquetat-         ###   ########.fr        #
+#    Updated: 2024/01/05 14:35:31 by kquetat-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,6 +49,8 @@ SRC			=	${addprefix ${MAIN_SRC_PATH}, main.c \
 											utils/map_tools.c}
 
 SRC_BONUS	=	${addprefix ${BONUS_SRC_PATH}, main_bonus.c\
+											game_bonus/extra_utils_bonus.c \
+											game_bonus/ft_minimap_bonus.c \
 											game_bonus/key_handler_bonus.c \
 											initialize_bonus/init_cub_bonus.c \
 											initialize_bonus/init_struct_bonus.c \
@@ -68,6 +70,7 @@ SRC_BONUS	=	${addprefix ${BONUS_SRC_PATH}, main_bonus.c\
 											utils_bonus/ft_utils2_bonus.c \
 											utils_bonus/map_tools_bonus.c}
 
+
 OBJ			=	${SRC:.c=.o}
 OBJ_BONUS	=	${SRC_BONUS:.c=.o}
 
@@ -83,12 +86,16 @@ ifeq (${OS_NAME}, Linux)
 	CFLAGS	+=	-Imlx/linux/
 	LIBMLX	=	./mlx/linux/libmlx.a
 	MLX_DIR	=	./mlx/linux/
+	LINUX_SRC_BONUS	=	${BONUS_SRC_PATH}game_bonus/linux_mouse_bonus.c
+	SRC_BONUS	+=	${LINUX_SRC_BONUS}
 endif
 
 ifeq (${OS_NAME}, Darwin)
 	CFLAGS	+=	-Imlx/macos
 	LIBMLX	=	./mlx/macos/libmlx.a
 	MLX_DIR	=	./mlx/macos/
+	MACOS_SRC_BONUS	=	${BONUS_SRC_PATH}game_bonus/macos_mouse_bonus.c
+	SRC_BONUS	+=	${MACOS_SRC_BONUS}
 endif
 
 # --- DEBUG PURPOSES --- #
@@ -103,7 +110,7 @@ CUR_UP		=	\033[A
 # add correct path according to the cmd #
 ifdef	BREW_BONUS
 	PATH_LOAD_BAR	=	./src/bonus/
-	BAR				=	${shell expr 19 \* ${COUNTER} / ${TOTAL_SRCS}}
+	BAR				=	${shell expr 23 \* ${COUNTER} / ${TOTAL_SRCS}}
 else
 	PATH_LOAD_BAR	=	./src/mandatory/
 	BAR				=	${shell expr 19 \* ${COUNTER} / ${TOTAL_SRCS}}
@@ -144,7 +151,7 @@ ${NAME}:	brew_libft brew_mlx ${OBJ}
 bonus:	brew_libft brew_mlx ${OBJ_BONUS}
 	@clear
 	@printf "\n\n${GRAY}━━━━━━━━━━━━━━━━━━━━━━━━━━━━${RESET}\n"
-	@${CC} ${CFLAGS} ${OBJ} -Lmlx/linux -lmlx -lXext -lX11 -lm -lz -o ${NAME} ${LIBFT}libft.a
+	@${CC} ${CFLAGS} ${OBJ_BONUS} -Lmlx/linux -lmlx -lXext -lX11 -lm -lz -o ${NAME_BONUS} ${LIBFT}libft.a
 	@printf "${BOLD}${GREEN} ↳ ${BLUE}[${PURPLE}${NAME_BONUS}${BLUE}] ${GREEN}compiled !${RESET}"
 	@printf "\n${GRAY}━━━━━━━━━━━━━━━━━━━━━━━━━━━━${RESET}\n"
 endif
@@ -160,8 +167,8 @@ ${NAME}:	brew_libft brew_mlx ${OBJ}
 bonus:	brew_libft brew_mlx ${OBJ_BONUS}
 	@clear
 	@printf "\n\n${GRAY}━━━━━━━━━━━━━━━━━━━━━━━━━━━━${RESET}\n"
-	@${CC} ${CFLAGS} -Lmlx/macos -lmlx ${OFLAGS} ${LIBFT}libft.a ${OBJ} -o ${NAME}
-	@printf "${BOLD}${GREEN} ↳ ${BLUE}[${PURPLE}${NAME}${BLUE}] ${GREEN}compiled !${RESET}"
+	@${CC} ${CFLAGS} -Lmlx/macos -lmlx ${OFLAGS} ${LIBFT}libft.a ${OBJ_BONUS} -o ${NAME_BONUS}
+	@printf "${BOLD}${GREEN} ↳ ${BLUE}[${PURPLE}${NAME_BONUS}${BLUE}] ${GREEN}compiled !${RESET}"
 	@printf "\n${GRAY}━━━━━━━━━━━━━━━━━━━━━━━━━━━━${RESET}\n"
 endif
 
@@ -177,14 +184,14 @@ debug:
 clean:
 	@make clean -C ${LIBFT}
 	@make clean -C ${MLX_DIR}
-	@rm -f ${OBJ}
+	@rm -f ${OBJ} ${OBJ_BONUS}
 	@printf "\n${GRAY}━━━━━━━━━━━━━━━━━━━━━━━━━━━━${RESET}\n"
 	@printf "${BOLD}${GREEN} ↳ ${BLUE}[${PURPLE}${NAME}${BLUE}] object ${RED}cleaned${RESET}"
 	@printf "\n${GRAY}━━━━━━━━━━━━━━━━━━━━━━━━━━━━${RESET}\n"
 
 fclean:	clean
 	@make fclean -C ${LIBFT}
-	@rm -f ${NAME}
+	@rm -f ${NAME} ${NAME_BONUS}
 	@printf "\n${GRAY}━━━━━━━━━━━━━━━━━━━━━━━━━━━━${RESET}\n"
 	@printf "${BOLD}${GREEN} ↳ ${BLUE}[${PURPLE}${NAME}${BLUE}] ${RED}removed${RESET}"
 	@printf "\n${GRAY}━━━━━━━━━━━━━━━━━━━━━━━━━━━━${RESET}\n"

@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 16:59:10 by kquetat-          #+#    #+#             */
-/*   Updated: 2024/01/03 16:59:30 by kquetat-         ###   ########.fr       */
+/*   Updated: 2024/01/04 17:34:43 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,9 @@ typedef enum e_value
 
 /* MLX ERROR */
 # define INIT_ERR "Error\nFailed at mlx_init()"
+
+/* MINIMAP_ERR */
+# define MINIMAP_ERR "Error\nError with minimap"
 
 /* FREE FUNCTION UTILITIES */
 // Free in the case of error w/ return value + ft_close utils.
