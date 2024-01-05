@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 17:36:06 by kquetat-          #+#    #+#             */
-/*   Updated: 2024/01/03 18:01:30 by kquetat-         ###   ########.fr       */
+/*   Updated: 2024/01/05 16:09:14 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ bool	flood_fill(t_map *map, char **tmp)
 			pos = find_pos('0', tmp);
 			if (pos.x < 0 || pos.y < 0)
 				return (false);
-			examine_path(map, tmp, pos, "0/NWSE");
+			examine_path(map, tmp, pos, "02/NWSE");
 		}
 		if (map->anomaly == true)
 			return (false);

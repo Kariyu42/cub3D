@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 17:35:57 by kquetat-          #+#    #+#             */
-/*   Updated: 2024/01/03 17:46:15 by kquetat-         ###   ########.fr       */
+/*   Updated: 2024/01/05 16:08:33 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static int	inspect_map(t_config **conf)
 	map = (*conf)->map;
 	while (map->sketch[++i])
 	{
-		if (inspect_line(map, map->sketch[i], "10 NWES\t") == false)
+		if (inspect_line(map, map->sketch[i], "102 NWES\t") == false)
 			return (ft_putendl_fd(CHAR_ERR, STDERR_FILENO));
 		else if (map->num_player > 1)
 			return (ft_putendl_fd(PLAYER_ERR, STDERR_FILENO));
