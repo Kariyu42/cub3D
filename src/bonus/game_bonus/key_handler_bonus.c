@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 17:25:37 by kquetat-          #+#    #+#             */
-/*   Updated: 2024/01/05 14:00:21 by kquetat-         ###   ########.fr       */
+/*   Updated: 2024/01/05 16:21:59 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,11 @@ static void	do_move(t_config **conf, double new_x, double new_y)
 	p = (*conf)->usr;
 	move_x = (int)(p->pos_x + new_x * (MOVE_SPEED + 0.1));
 	move_y = (int)(p->pos_y + new_y * (MOVE_SPEED + 0.1));
-	if (map[move_x][(int)(p->pos_y)] != '1')
+	if (map[move_x][(int)(p->pos_y)] != '1' \
+		 && map[move_x][(int)(p->pos_y)] != '2')
 		p->pos_x += new_x * MOVE_SPEED;
-	if (map[(int)(p->pos_x)][move_y] != '1')
+	if (map[(int)(p->pos_x)][move_y] != '1' \
+		&& map[(int)(p->pos_x)][move_y] != '2')
 		p->pos_y += new_y * MOVE_SPEED;
 }
 
