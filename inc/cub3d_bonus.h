@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 16:42:39 by kquetat-          #+#    #+#             */
-/*   Updated: 2024/01/05 15:27:55 by kquetat-         ###   ########.fr       */
+/*   Updated: 2024/01/05 15:34:40 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -176,7 +176,7 @@ typedef struct s_config
 {
 	t_map		*map;
 	t_data		*data;
-	t_mlx		text[NBR_TEXTURE];
+	t_mlx		text[5];
 	t_mlx		*mlx;
 	t_ray		*ray;
 	t_player	*usr;
