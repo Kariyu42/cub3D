@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 17:24:45 by kquetat-          #+#    #+#             */
-/*   Updated: 2024/01/05 16:04:20 by kquetat-         ###   ########.fr       */
+/*   Updated: 2024/01/05 17:49:11 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,15 +43,15 @@ void	free_double_p(char **table)
 
 int	free_table_err(t_config **conf, char *message, int r_value)
 {
-	if ((*conf)->map->file)
+	if ((*conf)->map && (*conf)->map->file)
 		free_double_p((*conf)->map->file);
-	if ((*conf)->map->sketch)
+	if ((*conf)->map && (*conf)->map->sketch)
 		free((*conf)->map->sketch);
 	if ((*conf)->map)
 		free((*conf)->map);
-	if ((*conf)->data->c_color)
+	if ((*conf)->data && (*conf)->data->c_color)
 		free_double_p((*conf)->data->c_color);
-	if ((*conf)->data->f_color)
+	if ((*conf)->data && (*conf)->data->f_color)
 		free_double_p((*conf)->data->f_color);
 	if ((*conf)->data)
 		free((*conf)->data);
@@ -68,13 +68,13 @@ int	free_table_err(t_config **conf, char *message, int r_value)
 
 void	*free_void_err(t_config **conf, char *message)
 {
-	if ((*conf)->map->file)
+	if ((*conf)->map && (*conf)->map->file)
 		free_double_p((*conf)->map->file);
-	if ((*conf)->map->sketch)
+	if ((*conf)->map && (*conf)->map->sketch)
 		free((*conf)->map->sketch);
-	if ((*conf)->data->c_color)
+	if ((*conf)->data && (*conf)->data->c_color)
 		free_double_p((*conf)->data->c_color);
-	if ((*conf)->data->f_color)
+	if ((*conf)->data && (*conf)->data->f_color)
 		free_double_p((*conf)->data->f_color);
 	if ((*conf)->data)
 		free((*conf)->data);

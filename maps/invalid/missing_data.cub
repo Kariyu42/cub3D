@@ -1,12 +1,13 @@
-NO ./path_to_the_north_texture
+NO textures/minecraft/north.xpm    
 
-SO ./path_to_the_south_texture
+SO ./textures/minecraft/south.xpm   
 
-WE                 ./path_to_the_west_texture
-EA ./path_to_the_east_texture
+ WE           ./textures/minecraft/west.xpm   
 
-F 220,100,0
-C 225,30,
+EA ./textures/minecraft/east.xpm 
+
+F 210,100,0
+C 225,30,0
 
 1111111111111111111111111
 1000000000000000000000001

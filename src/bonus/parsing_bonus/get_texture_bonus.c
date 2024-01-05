@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 17:36:12 by kquetat-          #+#    #+#             */
-/*   Updated: 2024/01/03 17:53:13 by kquetat-         ###   ########.fr       */
+/*   Updated: 2024/01/05 18:40:04 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,12 +102,12 @@ int	get_colors(t_config **conf, char **file, int i)
 	if (ft_strchr(file[i], 'F'))
 	{
 		if (check_color(&data->f_color, file[i], &data->count_data) == ERROR)
-			return (MAP_ERR);
+			return (-1);
 	}
 	else if (ft_strchr(file[i], 'C'))
 	{
 		if (check_color(&data->c_color, file[i], &data->count_data) == ERROR)
-			return (MAP_ERR);
+			return (-1);
 	}
 	return (SUCCESS);
 }

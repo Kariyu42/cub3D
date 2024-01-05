@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 17:36:09 by kquetat-          #+#    #+#             */
-/*   Updated: 2024/01/03 17:37:29 by kquetat-         ###   ########.fr       */
+/*   Updated: 2024/01/05 18:22:02 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,10 @@ int	init_map_data(t_config **conf)
 		if (get_textures(file, data, i) < 0 || get_colors(conf, file, i) < 0)
 			return (DATA_ERR);
 	if (data->count_data != 6)
-		return (ft_putendl_fd(ELEMENT_ERR, STDERR_FILENO));
+	{
+		ft_putendl_fd(ELEMENT_ERR, STDERR_FILENO);
+		return (DATA_ERR);
+	}
 	if (same_color(conf) == DATA_ERR)
 		return (DATA_ERR);
 	return (SUCCESS);
