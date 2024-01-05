@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 17:24:45 by kquetat-          #+#    #+#             */
-/*   Updated: 2024/01/05 15:28:48 by kquetat-         ###   ########.fr       */
+/*   Updated: 2024/01/05 16:04:20 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_destroy_img(t_config **conf, t_mlx *table)
 
 	i = -1;
 	mlx = (*conf)->mlx;
-	while (++i < 5)
+	while (++i < 4)
 		mlx_destroy_image(mlx->mlx, table[i].img);
 	if ((*conf)->mlx->win)
 		mlx_destroy_window((*conf)->mlx->mlx, (*conf)->mlx->win);
