@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 16:42:39 by kquetat-          #+#    #+#             */
-/*   Updated: 2024/01/05 16:29:01 by kquetat-         ###   ########.fr       */
+/*   Updated: 2024/01/05 16:45:06 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@
 #  define D_KEY 100
 #  define S_KEY 115
 #  define A_KEY 97
-#  define MOUSE_TOGGLE 77
+#  define MOUSE_TOGGLE 109
 #  define SPACE_BAR 32
 # endif
 
