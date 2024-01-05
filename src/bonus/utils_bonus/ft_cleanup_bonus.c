@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 17:24:45 by kquetat-          #+#    #+#             */
-/*   Updated: 2024/01/05 14:34:26 by kquetat-         ###   ########.fr       */
+/*   Updated: 2024/01/05 15:29:40 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_destroy_img(t_config **conf, t_mlx *table)
 
 	i = -1;
 	mlx = (*conf)->mlx;
-	while (++i < NBR_TEXTURE)
+	while (++i < 6)
 		mlx_destroy_image(mlx->mlx, table[i].img);
 	mlx_destroy_image(mlx->mlx, (*conf)->data->door_c.img);
 	mlx_destroy_image(mlx->mlx, (*conf)->data->floor.img);

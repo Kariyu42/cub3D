@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 16:42:39 by kquetat-          #+#    #+#             */
-/*   Updated: 2024/01/05 15:07:59 by kquetat-         ###   ########.fr       */
+/*   Updated: 2024/01/05 15:27:55 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@
 // Game Macros
 # define MOVE_SPEED 0.1
 # define ROT_SPEED 0.05
-# define NBR_TEXTURE 6
 
 // Size of the screen
 # define WIDTH 1080
