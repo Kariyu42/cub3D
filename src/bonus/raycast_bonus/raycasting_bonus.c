@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 17:34:43 by kquetat-          #+#    #+#             */
-/*   Updated: 2024/01/03 17:58:37 by kquetat-         ###   ########.fr       */
+/*   Updated: 2024/01/05 16:14:31 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ void	start_dda_algo(char **map, t_ray *ray)
 	bool	wall_hit;
 
 	wall_hit = false;
+	ray->door_hit = false;
 	while (wall_hit != true)
 	{
 		if (ray->sidedist_x < ray->sidedist_y)
@@ -72,8 +73,11 @@ void	start_dda_algo(char **map, t_ray *ray)
 			ray->map_y += ray->step_y;
 			ray->side = true;
 		}
-		if (map[ray->map_x][ray->map_y] == '1')
+		if (map[ray->map_x][ray->map_y] == '1' \
+			|| map[ray->map_x][ray->map_y] == '2')
 			wall_hit = true;
+		if (map[ray->map_x][ray->map_y] == '2')
+			ray->door_hit = true;
 	}
 }
 

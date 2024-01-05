@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 17:34:37 by kquetat-          #+#    #+#             */
-/*   Updated: 2024/01/05 15:08:57 by kquetat-         ###   ########.fr       */
+/*   Updated: 2024/01/05 16:15:23 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ void	draw_floor_sky(t_config **conf, int draw_start, int x)
 
 int	find_orientation(t_ray *ray, t_player *p)
 {
+	if (ray->door_hit)
+		return (DOOR);
 	if (ray->side == true && p->pos_y < ray->map_y)
 		return (EAST);
 	else if (ray->side == true && p->pos_y > ray->map_y)

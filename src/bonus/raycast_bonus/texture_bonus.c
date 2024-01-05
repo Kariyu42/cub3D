@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 17:34:13 by kquetat-          #+#    #+#             */
-/*   Updated: 2024/01/03 17:59:17 by kquetat-         ###   ########.fr       */
+/*   Updated: 2024/01/05 16:17:12 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void	apply_texture(t_config **conf, int dir, int x, int y)
 
 	color = 0;
 	r = (*conf)->ray;
+	if (dir == DOOR)
+		color = get_pixel_color(&(*conf)->text[DOOR], r->tex_x, r->tex_y);
 	if (dir == NORTH)
 		color = get_pixel_color(&(*conf)->text[NORTH], r->tex_x, r->tex_y);
 	else if (dir == SOUTH)
