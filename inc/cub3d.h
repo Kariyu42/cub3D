@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 16:42:39 by kquetat-          #+#    #+#             */
-/*   Updated: 2024/01/07 12:41:14 by kquetat-         ###   ########.fr       */
+/*   Updated: 2024/01/08 16:23:44 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -206,7 +206,7 @@ int		ft_strcmp(char *s1, char *s2);
 int		same_color(t_config **conf);
 int		len_tab(char **tab);
 int		valid_color(char **color);
-int		check_color(char ***color, char *str, int *data);
+int		check_color(char ***color, char *str, int *data, t_data *d);
 
 /*	MAP_DATA.C	*/
 int		init_map_data(t_config **conf);

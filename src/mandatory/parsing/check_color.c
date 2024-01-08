@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 17:36:16 by kquetat-          #+#    #+#             */
-/*   Updated: 2024/01/08 15:25:28 by kquetat-         ###   ########.fr       */
+/*   Updated: 2024/01/08 16:24:29 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,11 +80,13 @@ int	valid_color(char **color)
 	return (SUCCESS);
 }
 
-int	check_color(char ***color, char *str, int *data)
+int	check_color(char ***color, char *str, int *data, t_data *d)
 {
 	int	i;
 
 	i = 0;
+	if (d->c_color && d->f_color)
+		return (SUCCESS);
 	while (str[i] && (str[i] == ' ' || str[i] == '\t'))
 		i++;
 	if (str[i] && (str[i + 1] != ' ' && str[i + 1] != '\t'))
