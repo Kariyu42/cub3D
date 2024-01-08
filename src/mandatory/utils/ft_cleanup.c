@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 17:24:45 by kquetat-          #+#    #+#             */
-/*   Updated: 2024/01/05 17:49:11 by kquetat-         ###   ########.fr       */
+/*   Updated: 2024/01/08 15:27:54 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ void	free_double_p(char **table)
 
 int	free_table_err(t_config **conf, char *message, int r_value)
 {
+	if (!*conf || !conf)
+		return (0);
 	if ((*conf)->map && (*conf)->map->file)
 		free_double_p((*conf)->map->file);
 	if ((*conf)->map && (*conf)->map->sketch)
@@ -68,6 +70,8 @@ int	free_table_err(t_config **conf, char *message, int r_value)
 
 void	*free_void_err(t_config **conf, char *message)
 {
+	if (!*conf || !conf)
+		return (0);
 	if ((*conf)->map && (*conf)->map->file)
 		free_double_p((*conf)->map->file);
 	if ((*conf)->map && (*conf)->map->sketch)
@@ -91,6 +95,8 @@ void	*free_void_err(t_config **conf, char *message)
 
 int	ft_close(t_config **conf)
 {
+	if (!*conf || !conf)
+		return (0);
 	ft_destroy_img(conf, (*conf)->text);
 	if ((*conf)->mlx)
 		free((*conf)->mlx);

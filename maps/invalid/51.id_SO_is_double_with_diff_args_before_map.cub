@@ -1,0 +1,18 @@
+NO ./textures/minecraft/north.xpm
+SO ./textures/minecraft/south.xpm
+SO ./textures/wolfenstein/wood.xpm
+WE ./textures/minecraft/west.xpm
+EA ./textures/minecraft/east.xpm
+
+C 10, 10, 10
+F 10, 10, 10
+
+111111111111111
+100000000000001
+100000000000001
+100000000000001
+1000000N0000001
+100000000000001
+100000000000001
+100000000000001
+111111111111111

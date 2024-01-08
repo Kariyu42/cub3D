@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 17:36:16 by kquetat-          #+#    #+#             */
-/*   Updated: 2024/01/03 17:36:17 by kquetat-         ###   ########.fr       */
+/*   Updated: 2024/01/08 15:25:28 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,10 @@ int	same_color(t_config **conf)
 		if (i != 3)
 			return (SUCCESS);
 		else
-			return (free_table_err(conf, COLOR_ERR, DATA_ERR));
+		{
+			ft_putendl_fd(COLOR_ERR, STDERR_FILENO);
+			return (ERROR);
+		}
 	}
 	else
 		return (ERROR);
@@ -82,11 +85,13 @@ int	check_color(char ***color, char *str, int *data)
 	int	i;
 
 	i = 0;
-	if (str[i + 1] != ' ')
+	while (str[i] && (str[i] == ' ' || str[i] == '\t'))
+		i++;
+	if (str[i] && (str[i + 1] != ' ' && str[i + 1] != '\t'))
 		return (ERROR);
 	i++;
-	while (!ft_isdigit(str[i]))
-		i++;
+	if (valid_color_checker(str, &i) == ERROR)
+		return (ERROR);
 	color[0] = ft_split(str + i, ',');
 	if (color[0] == NULL)
 		return (0);

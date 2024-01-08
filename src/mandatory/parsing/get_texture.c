@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 17:36:12 by kquetat-          #+#    #+#             */
-/*   Updated: 2024/01/05 18:38:34 by kquetat-         ###   ########.fr       */
+/*   Updated: 2024/01/06 19:18:26 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	check_path(char *arg)
 int	get_path(char *str, char **store_data, int *data)
 {
 	if (ft_contain(str, ".xpm") == 0)
-		return (ERROR);
+		return (-1);
 	else
 	{
 		*store_data = str + 3;
@@ -73,22 +73,22 @@ int	get_textures(char **file, t_data *data, int i)
 {
 	if (ft_contain(file[i], "NO"))
 	{
-		if (get_path(file[i], &data->no_text, &data->count_data) == ERROR)
+		if (get_path(file[i], &data->no_text, &data->count_data) == -1)
 			return (ft_putendl_fd(PATH_ERR, STDERR_FILENO));
 	}
 	else if (ft_contain(file[i], "SO"))
 	{
-		if (get_path(file[i], &data->so_text, &data->count_data) == ERROR)
+		if (get_path(file[i], &data->so_text, &data->count_data) == -1)
 			return (ft_putendl_fd(PATH_ERR, STDERR_FILENO));
 	}
 	else if (ft_contain(file[i], "WE"))
 	{
-		if (get_path(file[i], &data->we_text, &data->count_data) == ERROR)
+		if (get_path(file[i], &data->we_text, &data->count_data) == -1)
 			return (ft_putendl_fd(PATH_ERR, STDERR_FILENO));
 	}
 	else if (ft_contain(file[i], "EA"))
 	{
-		if (get_path(file[i], &data->ea_text, &data->count_data) == ERROR)
+		if (get_path(file[i], &data->ea_text, &data->count_data) == -1)
 			return (ft_putendl_fd(PATH_ERR, STDERR_FILENO));
 	}
 	return (SUCCESS);

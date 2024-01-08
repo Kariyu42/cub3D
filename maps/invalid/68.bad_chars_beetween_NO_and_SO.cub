@@ -1,0 +1,17 @@
+NO ./textures/minecraft/north.xpm
+caca
+SO ./textures/minecraft/south.xpm
+WE ./textures/minecraft/west.xpm
+EA ./textures/minecraft/east.xpm
+C 67, 10, 10
+F 10, 10, 10
+
+111111111111111
+100000000000001
+100000000000001
+100000000000001
+1000000N0000001
+100000000000001
+100000000000001
+100000000000001
+111111111111111

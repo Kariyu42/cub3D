@@ -6,14 +6,14 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 17:24:51 by kquetat-          #+#    #+#             */
-/*   Updated: 2024/01/03 17:25:06 by kquetat-         ###   ########.fr       */
+/*   Updated: 2024/01/08 15:28:35 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 #include "err_type.h"
 
-// /* Print_map to be removed */
+/* Print_map to be removed */
 // void	print_map(char **map)
 // {
 // 	int	i;

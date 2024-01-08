@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 16:57:10 by kquetat-          #+#    #+#             */
-/*   Updated: 2024/01/03 16:58:45 by kquetat-         ###   ########.fr       */
+/*   Updated: 2024/01/08 14:15:18 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@ typedef enum e_value
 # define EMPTY_ERR "Error\nNo Map was collected."
 // player issue message
 # define PLAYER_ERR "Error\nCannot have more than one player."
+// player issue message
+# define PLAYER_POS_ERR "Error\nCheck player position."
 // invalid char message
 # define CHAR_ERR "Error\nFound an invalid char in the map."
 // xpm file error message
@@ -81,5 +83,7 @@ int		free_table_err(t_config **conf, char *message, int r_value);
 void	*free_void_err(t_config **conf, char *message);
 // Free char ** variables.
 void	free_double_p(char **table);
+/* to rm before push */
+void	print_map(char **map);
 
 #endif

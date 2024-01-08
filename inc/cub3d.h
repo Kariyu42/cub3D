@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 16:42:39 by kquetat-          #+#    #+#             */
-/*   Updated: 2024/01/05 15:34:19 by kquetat-         ###   ########.fr       */
+/*   Updated: 2024/01/07 12:41:14 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -201,6 +201,7 @@ int		get_textures(char **file, t_data *data, int i);
 int		get_path(char *str, char **store_data, int *data);
 
 /*	CHECK_COLOR.C	*/
+int		valid_color_checker(char *str, int *i);
 int		ft_strcmp(char *s1, char *s2);
 int		same_color(t_config **conf);
 int		len_tab(char **tab);
