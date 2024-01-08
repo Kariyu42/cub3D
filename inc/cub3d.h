@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 16:42:39 by kquetat-          #+#    #+#             */
-/*   Updated: 2024/01/08 16:23:44 by kquetat-         ###   ########.fr       */
+/*   Updated: 2024/01/08 18:16:30 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,16 @@
 // Size of Textures
 # define TEXTURE_W 64
 # define TEXTURE_H 64
+
+typedef struct s_count
+{
+	int	no;
+	int	so;
+	int	we;
+	int	ea;
+	int	ceiling;
+	int	floor;
+}	t_count;
 
 typedef enum e_dir
 {
@@ -206,10 +216,11 @@ int		ft_strcmp(char *s1, char *s2);
 int		same_color(t_config **conf);
 int		len_tab(char **tab);
 int		valid_color(char **color);
-int		check_color(char ***color, char *str, int *data, t_data *d);
+int		check_color(char ***color, char *str, int *data);
 
 /*	MAP_DATA.C	*/
 int		init_map_data(t_config **conf);
+bool	check_data_presence(t_config **conf, char **file);
 bool	is_dir(char *arg);
 int		check_path(char *arg);
 int		stock_image(t_config **conf);

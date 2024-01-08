@@ -6,7 +6,7 @@
 #    By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/30 16:25:28 by kquetat-          #+#    #+#              #
-#    Updated: 2024/01/05 14:35:31 by kquetat-         ###   ########.fr        #
+#    Updated: 2024/01/08 18:36:49 by kquetat-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,6 +46,7 @@ SRC			=	${addprefix ${MAIN_SRC_PATH}, main.c \
 											utils/ft_cleanup.c \
 											utils/ft_utils.c \
 											utils/ft_utils2.c \
+											utils/ft_utils3.c \
 											utils/map_tools.c}
 
 SRC_BONUS	=	${addprefix ${BONUS_SRC_PATH}, main_bonus.c\
@@ -113,7 +114,7 @@ ifdef	BREW_BONUS
 	BAR				=	${shell expr 23 \* ${COUNTER} / ${TOTAL_SRCS}}
 else
 	PATH_LOAD_BAR	=	./src/mandatory/
-	BAR				=	${shell expr 19 \* ${COUNTER} / ${TOTAL_SRCS}}
+	BAR				=	${shell expr 20 \* ${COUNTER} / ${TOTAL_SRCS}}
 endif
 
 TOTAL_SRCS	=	${shell find ${PATH_LOAD_BAR} -type f -name "*.c" -not -path "./Lib/Libft/*" -not -path "./mlx/*" | wc -l}
@@ -123,14 +124,14 @@ ${MAIN_SRC_PATH}%.o: ${MAIN_SRC_PATH}%.c
 	@${eval COUNTER = ${shell expr ${COUNTER} + 1}}
 	@${CC} ${CFLAGS} -I${MLX_DIR} -I${HEADER} -c $< -o $@
 	@echo " ${GREEN}${BOLD} ↳ ${BLUE}cooking [${PURPLE}${NAME}${BLUE}]:${RESET}"
-	@printf "\t\t\t${BOLD}${BLUE}[${PURPLE}%-19.${BAR}s${BLUE}] %d/%d [${GREEN}%d%%${BLUE}]${RESET}" "////////////////////" ${COUNTER} ${TOTAL_SRCS} ${PERCENT}
+	@printf "\t\t\t${BOLD}${BLUE}[${PURPLE}%-19.${BAR}s${BLUE}] %d/%d [${GREEN}%d%%${BLUE}]${RESET}" "///////////////////" ${COUNTER} ${TOTAL_SRCS} ${PERCENT}
 	@echo "${CUR_UP}${CUR_UP}"
 
 ${BONUS_SRC_PATH}%.o: ${BONUS_SRC_PATH}%.c
 	@${eval COUNTER = ${shell expr ${COUNTER} + 1}}
 	@${CC} ${CFLAGS} -I${MLX_DIR} -I${HEADER} -c $< -o $@
 	@echo " ${GREEN}${BOLD} ↳ ${BLUE}cooking [${PURPLE}${NAME}${BLUE}]:${RESET}"
-	@printf "\t\t\t${BOLD}${BLUE}[${PURPLE}%-19.${BAR}s${BLUE}] %d/%d [${GREEN}%d%%${BLUE}]${RESET}" "////////////////////" ${COUNTER} ${TOTAL_SRCS} ${PERCENT}
+	@printf "\t\t\t${BOLD}${BLUE}[${PURPLE}%-19.${BAR}s${BLUE}] %d/%d [${GREEN}%d%%${BLUE}]${RESET}" "///////////////////" ${COUNTER} ${TOTAL_SRCS} ${PERCENT}
 	@echo "${CUR_UP}${CUR_UP}"
 
 # --- EXEC / RULES --- #
