@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_utils2.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
+/*   By: epraduro <epraduro@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 17:24:28 by kquetat-          #+#    #+#             */
-/*   Updated: 2024/01/08 15:24:24 by kquetat-         ###   ########.fr       */
+/*   Updated: 2024/01/09 14:58:03 by epraduro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	fill_colors(char **color_table, int *to_fill)
 	}
 }
 
-int	increase_counter(char *str, int *i, int *commma_count, int *rgb_count)
+int	increase_counter(char *str, int *i, int *comma_count, int *rgb_count)
 {
 	if (str[*i] == ',' && !rgb_count)
 		return (ERROR);
@@ -48,10 +48,10 @@ int	increase_counter(char *str, int *i, int *commma_count, int *rgb_count)
 			(*rgb_count)++;
 		while (str[*i] && str[*i] == ',')
 		{
-			(*commma_count)++;
+			(*comma_count)++;
 			(*i)++;
 		}
-		if (*commma_count > 2)
+		if (*comma_count > 2)
 			return (ERROR);
 	}
 	return (SUCCESS);
@@ -59,21 +59,21 @@ int	increase_counter(char *str, int *i, int *commma_count, int *rgb_count)
 
 int	valid_color_checker(char *str, int *i)
 {
-	int	commma_count;
+	int	comma_count;
 	int	rgb_count;
 
 	rgb_count = 0;
-	commma_count = 0;
+	comma_count = 0;
 	while (str[*i])
 	{
 		if (!ft_isdigit(str[*i]) && str[*i] != ' ' && str[*i] != '\t' \
 			&& str[*i] != ',')
 			return (ERROR);
-		if (increase_counter(str, i, &commma_count, &rgb_count) == ERROR)
+		if (increase_counter(str, i, &comma_count, &rgb_count) == ERROR)
 			return (ERROR);
 		(*i)++;
 	}
-	if (rgb_count != 3 && commma_count != 2)
+	if (rgb_count != 3 && comma_count != 2)
 		return (ERROR);
 	*i = 0;
 	while (str[*i] && (str[*i] != 'C' && str[*i] != 'F'))

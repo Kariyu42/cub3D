@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
+/*   By: epraduro <epraduro@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 16:42:39 by kquetat-          #+#    #+#             */
-/*   Updated: 2024/01/05 16:45:06 by kquetat-         ###   ########.fr       */
+/*   Updated: 2024/01/09 18:39:53 by epraduro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,16 @@ typedef enum e_dir
 	WEST,
 	DOOR
 }	t_dir;
+
+typedef struct s_count
+{
+	int	no;
+	int	so;
+	int	we;
+	int	ea;
+	int	ceiling;
+	int	floor;
+}	t_count;
 
 typedef struct s_pos
 {
@@ -221,6 +231,7 @@ int		get_textures(char **file, t_data *data, int i);
 int		get_path(char *str, char **store_data, int *data);
 
 /*	CHECK_COLOR.C	*/
+int		valid_color_checker(char *str, int *i);
 int		ft_strcmp(char *s1, char *s2);
 int		same_color(t_config **conf);
 int		len_tab(char **tab);
@@ -229,6 +240,7 @@ int		check_color(char ***color, char *str, int *data);
 
 /*	MAP_DATA.C	*/
 int		init_map_data(t_config **conf);
+bool	check_data_presence(t_config **conf, char **file);
 bool	is_dir(char *arg);
 int		check_path(char *arg);
 int		stock_image(t_config **conf);

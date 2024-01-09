@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_color_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
+/*   By: epraduro <epraduro@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 17:36:16 by kquetat-          #+#    #+#             */
-/*   Updated: 2024/01/03 17:54:04 by kquetat-         ###   ########.fr       */
+/*   Updated: 2024/01/09 18:37:43 by epraduro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,9 +82,13 @@ int	check_color(char ***color, char *str, int *data)
 	int	i;
 
 	i = 0;
-	if (str[i + 1] != ' ')
+	while (str[i] && (str[i] == ' ' || str[i] == '\t'))
+		i++;
+	if (str[i] && (str[i + 1] != ' ' && str[i + 1] != '\t'))
 		return (ERROR);
 	i++;
+	if (valid_color_checker(str, &i) == ERROR)
+		return (ERROR);
 	while (!ft_isdigit(str[i]))
 		i++;
 	color[0] = ft_split(str + i, ',');

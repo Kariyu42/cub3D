@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_texture.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
+/*   By: epraduro <epraduro@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 17:36:12 by kquetat-          #+#    #+#             */
-/*   Updated: 2024/01/08 17:19:45 by kquetat-         ###   ########.fr       */
+/*   Updated: 2024/01/09 18:11:14 by epraduro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,11 +59,16 @@ int	check_path(char *arg)
 
 int	get_path(char *str, char **store_data, int *data)
 {
+	int	i;
+
+	i = 0;
 	if (ft_contain(str, ".xpm") == 0)
 		return (-1);
 	else
 	{
-		*store_data = str + 3;
+		while (str[i] && (str[i] == ' ' || str[i] == '\t'))
+			i++;
+		*store_data = str + i + 2;
 		(*data)++;
 	}
 	return (check_path(*store_data));
@@ -101,11 +106,15 @@ int	get_colors(t_config **conf, char **file, int i)
 	data = (*conf)->data;
 	if (ft_strchr(file[i], 'F'))
 	{
+		if (data->f_color)
+			return (-1);
 		if (check_color(&data->f_color, file[i], &data->count_data) == ERROR)
 			return (-1);
 	}
 	else if (ft_strchr(file[i], 'C'))
 	{
+		if (data->c_color)
+			return (-1);
 		if (check_color(&data->c_color, file[i], &data->count_data) == ERROR)
 			return (-1);
 	}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_data_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
+/*   By: epraduro <epraduro@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 17:36:09 by kquetat-          #+#    #+#             */
-/*   Updated: 2024/01/05 18:40:42 by kquetat-         ###   ########.fr       */
+/*   Updated: 2024/01/09 18:40:16 by epraduro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,8 @@ int	init_map_data(t_config **conf)
 	i = -1;
 	data = (*conf)->data;
 	file = (*conf)->map->file;
+	if (!check_data_presence(conf, file))
+		return (DATA_ERR);
 	while (++i < (*conf)->map->map_loc)
 		if (get_textures(file, data, i) < 0 || get_colors(conf, file, i) < 0)
 			return (DATA_ERR);

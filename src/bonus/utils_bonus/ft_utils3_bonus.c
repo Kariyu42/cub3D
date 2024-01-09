@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_utils3.c                                        :+:      :+:    :+:   */
+/*   ft_utils3_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: epraduro <epraduro@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/08 17:24:36 by kquetat-          #+#    #+#             */
-/*   Updated: 2024/01/09 18:27:10 by epraduro         ###   ########.fr       */
+/*   Created: 2024/01/09 18:33:37 by epraduro          #+#    #+#             */
+/*   Updated: 2024/01/09 18:35:41 by epraduro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
-#include "err_type.h"
+#include "cub3d_bonus.h"
+#include "err_type_bonus.h"
 
 static bool	check_format_line(char *str, char *to_find)
 {

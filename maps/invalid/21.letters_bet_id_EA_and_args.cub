@@ -1,7 +1,7 @@
 NO ./textures/minecraft/north.xpm
 SO ./textures/minecraft/south.xpm
-EA let ./textures/minecraft/west.xpm
-EA ./textures/minecraft/east.xpm
+EA let ./textures/minecraft/east.xpm
+WE ./textures/minecraft/west.xpm
 C 0, 10, 10
 F 10, 10, 10
 

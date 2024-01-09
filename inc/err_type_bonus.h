@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   err_type_bonus.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
+/*   By: epraduro <epraduro@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 16:59:10 by kquetat-          #+#    #+#             */
-/*   Updated: 2024/01/04 17:34:43 by kquetat-         ###   ########.fr       */
+/*   Updated: 2024/01/09 18:48:03 by epraduro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@ typedef enum e_value
 # define EMPTY_ERR "Error\nNo Map was collected."
 // player issue message
 # define PLAYER_ERR "Error\nCannot have more than one player."
+// player issue message
+# define PLAYER_POS_ERR "Error\nCheck player position."
 // invalid char message
 # define CHAR_ERR "Error\nFound an invalid char in the map."
 // xpm file error message

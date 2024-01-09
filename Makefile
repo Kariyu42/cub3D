@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+         #
+#    By: epraduro <epraduro@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/30 16:25:28 by kquetat-          #+#    #+#              #
-#    Updated: 2024/01/08 18:36:49 by kquetat-         ###   ########.fr        #
+#    Updated: 2024/01/09 18:49:40 by epraduro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,6 +69,7 @@ SRC_BONUS	=	${addprefix ${BONUS_SRC_PATH}, main_bonus.c\
 											utils_bonus/ft_cleanup_bonus.c \
 											utils_bonus/ft_utils_bonus.c \
 											utils_bonus/ft_utils2_bonus.c \
+											utils_bonus/ft_utils3_bonus.c \
 											utils_bonus/map_tools_bonus.c}
 
 
@@ -111,7 +112,7 @@ CUR_UP		=	\033[A
 # add correct path according to the cmd #
 ifdef	BREW_BONUS
 	PATH_LOAD_BAR	=	./src/bonus/
-	BAR				=	${shell expr 23 \* ${COUNTER} / ${TOTAL_SRCS}}
+	BAR				=	${shell expr 24 \* ${COUNTER} / ${TOTAL_SRCS}}
 else
 	PATH_LOAD_BAR	=	./src/mandatory/
 	BAR				=	${shell expr 20 \* ${COUNTER} / ${TOTAL_SRCS}}
@@ -124,14 +125,14 @@ ${MAIN_SRC_PATH}%.o: ${MAIN_SRC_PATH}%.c
 	@${eval COUNTER = ${shell expr ${COUNTER} + 1}}
 	@${CC} ${CFLAGS} -I${MLX_DIR} -I${HEADER} -c $< -o $@
 	@echo " ${GREEN}${BOLD} ↳ ${BLUE}cooking [${PURPLE}${NAME}${BLUE}]:${RESET}"
-	@printf "\t\t\t${BOLD}${BLUE}[${PURPLE}%-19.${BAR}s${BLUE}] %d/%d [${GREEN}%d%%${BLUE}]${RESET}" "///////////////////" ${COUNTER} ${TOTAL_SRCS} ${PERCENT}
+	@printf "\t\t\t${BOLD}${BLUE}[${PURPLE}%-19.${BAR}s${BLUE}] %d/%d [${GREEN}%d%%${BLUE}]${RESET}" "////////////////////" ${COUNTER} ${TOTAL_SRCS} ${PERCENT}
 	@echo "${CUR_UP}${CUR_UP}"
 
 ${BONUS_SRC_PATH}%.o: ${BONUS_SRC_PATH}%.c
 	@${eval COUNTER = ${shell expr ${COUNTER} + 1}}
 	@${CC} ${CFLAGS} -I${MLX_DIR} -I${HEADER} -c $< -o $@
 	@echo " ${GREEN}${BOLD} ↳ ${BLUE}cooking [${PURPLE}${NAME}${BLUE}]:${RESET}"
-	@printf "\t\t\t${BOLD}${BLUE}[${PURPLE}%-19.${BAR}s${BLUE}] %d/%d [${GREEN}%d%%${BLUE}]${RESET}" "///////////////////" ${COUNTER} ${TOTAL_SRCS} ${PERCENT}
+	@printf "\t\t\t${BOLD}${BLUE}[${PURPLE}%-19.${BAR}s${BLUE}] %d/%d [${GREEN}%d%%${BLUE}]${RESET}" "////////////////////" ${COUNTER} ${TOTAL_SRCS} ${PERCENT}
 	@echo "${CUR_UP}${CUR_UP}"
 
 # --- EXEC / RULES --- #
