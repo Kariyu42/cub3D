@@ -6,7 +6,7 @@
 /*   By: epraduro <epraduro@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 17:36:09 by kquetat-          #+#    #+#             */
-/*   Updated: 2024/01/09 18:26:33 by epraduro         ###   ########.fr       */
+/*   Updated: 2024/01/10 11:06:07 by epraduro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ static int	check_all_elements(t_data *data)
 {
 	if (!data->no_text || !data->so_text \
 		|| !data->ea_text || !data->we_text)
-			return (DATA_ERR);
+		return (DATA_ERR);
 	else if (!data->c_color || !data->f_color)
 		return (DATA_ERR);
 	if (data->count_data != 6)

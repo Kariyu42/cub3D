@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_tools.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
+/*   By: epraduro <epraduro@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 17:24:51 by kquetat-          #+#    #+#             */
-/*   Updated: 2024/01/08 17:02:15 by kquetat-         ###   ########.fr       */
+/*   Updated: 2024/01/10 11:08:26 by epraduro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,21 @@
 #include "err_type.h"
 
 /* Print_map to be removed */
-void	print_map(char **map)
-{
-	int	i;
+// void	print_map(char **map)
+// {
+// 	int	i;
 
-	i = 0;
-	if (!map)
-		return ;
-	while (map[i])
-	{
-		printf("map[%.2d]: %s\n", i, map[i]);
-		i++;
-	}
-	printf("map[%.2d]: %s\n", i, map[i]);
-	return ;
-}
+// 	i = 0;
+// 	if (!map)
+// 		return ;
+// 	while (map[i])
+// 	{
+// 		printf("map[%.2d]: %s\n", i, map[i]);
+// 		i++;
+// 	}
+// 	printf("map[%.2d]: %s\n", i, map[i]);
+// 	return ;
+// }
 
 bool	inspect_line(t_map *map, char *map_line, char *to_find)
 {
