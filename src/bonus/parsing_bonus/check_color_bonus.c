@@ -6,7 +6,7 @@
 /*   By: epraduro <epraduro@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 17:36:16 by kquetat-          #+#    #+#             */
-/*   Updated: 2024/01/09 18:37:43 by epraduro         ###   ########.fr       */
+/*   Updated: 2024/01/10 12:20:51 by epraduro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,8 +89,6 @@ int	check_color(char ***color, char *str, int *data)
 	i++;
 	if (valid_color_checker(str, &i) == ERROR)
 		return (ERROR);
-	while (!ft_isdigit(str[i]))
-		i++;
 	color[0] = ft_split(str + i, ',');
 	if (color[0] == NULL)
 		return (0);
