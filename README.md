@@ -2,9 +2,10 @@
 
 Cub3D is a project that explores the fundamentals of raycasting, offering a hands-on experience in creating a simple 3D game using the C programming language and the MiniLibX graphics library. 
 
-Small presentation: (need to add video small video for demo)
+### Small demonstration:
+https://github.com/Kariyu42/cub3D/assets/124782521/7ab8eefd-9081-497e-a7ae-0478bc40c250
 
-## Step 1 (The project can run on both Ubuntu 23.10 and macOS):
+## First things first (The project can run on both Ubuntu 23.10 and macOS):
 
 ### Ubuntu 23.10 REQUIREMENTS
 If you're running on a Linux machine, the project will rely on 42 Paris' [miniLibX](https://github.com/42Paris/minilibx-linux).
